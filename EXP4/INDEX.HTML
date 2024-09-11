@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>T-shirt</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body style="background-color:grey ;">
+
+<header>
+  <div style="display: inline-block;">
+    <img src="icons8-t-shirt-64.png" alt="logo" style="max-height: 50px;">
+  </div>
+  <nav style="display: inline-block;">
+    <ul>
+      <li><a href="#Offers">Offers</a></li>      
+      <li><a href="#">Category</a></li>
+      <li><a href="#">Contact</a></li>
+      <button style="font-size: 18px;padding: 10px;margin-right: 5px;" onclick="document.getElementById('id01').style.display='block'">Sign Up</button>
+    </ul>
+  </nav>
+</header>
+
+<div class="slidecontainer" id="Offers">
+  <div class="slidecard">
+    <img src="t-1.jpg" alt="Offer 1">
+    <div class="text">Offferrr....10%</div>
+  </div>
+  <div class="slidecard">
+    <img src="t-2.jpg" alt="Offer 2">
+    <div class="text">Offferrr....10%</div>
+  </div>
+  <div class="slidecard">
+    <img src="t-3.jpg" alt="Offer 3">
+    <div class="text">Offferrr....10%</div>
+  </div>
+
+  <a class="prev" onclick="plusslide(-1)">❮</a>
+  <a class="next" onclick="plusslide(1)">❯</a>
+</div>
+
+<br>
+
+<div style="text-align: center;">
+  <span class="dot" onclick="showSlides(1)"></span>
+  <span class="dot" onclick="showSlides(2)"></span>
+  <span class="dot" onclick="showSlides(3)"></span>
+</div>
+
+<br>
+<h2 style="text-align: Center; margin-left: 15px; color: white;"> <b>Category:</b> </h2>
+<hr>
+<h3 style="text-align: left; margin-left: 15px; color: white;">Men</h3>
+
+<div class="Men">
+  <div class="imagecard">
+    <img src="m.jpg">
+    <div style="text-align: center;">
+    <p class="model">model-m 1</p>
+    <button type="submit" style="padding: 5px; background-color: aquamarine;width: 40%;" onclick="booking('model-m 1')">Buy</button>
+  </div>
+  </div>
+
+  <div class="imagecard">
+    <img src="m.jpg">
+    <div style="text-align: center;">
+    <p class="model">model-m 2</p>
+    <button type="submit" style="padding: 5px; background-color: aquamarine;width: 40%;" onclick="booking('model-m 2')">Buy</button>
+  </div>
+  </div>
+
+  <div class="imagecard">
+    <img src="m.jpg">
+    <div style="text-align: center;">
+    <p class="model">model-m 3</p>
+    <button type="submit" style="padding: 5px; background-color: aquamarine;width: 40%;" onclick="booking('model-m 3')">Buy</button>
+  </div>
+  </div>
+</div>
+<br>
+
+<hr>
+<h3 style="text-align: left; margin-left: 15px; color: white;">Women</h3>
+<div class="Women">
+  <div class="imagecard">
+    <img src="wm.jpg">
+    <div style="text-align: center;">
+    <p class="model">model-wm 1</p>
+    <button type="submit" style="padding: 5px; background-color: aquamarine;width: 40%;" onclick="booking('model-wm 1')">Buy</button>
+  </div>
+  </div>
+
+  <div class="imagecard">
+    <img src="wm.jpg">
+    <div style="text-align: center;">
+    <p class="model">model-wm 1</p>
+    <button type="submit" style="padding: 5px; background-color: aquamarine;width: 40%;" onclick="booking('model-wm 2')">Buy</button>
+  </div>
+  </div>
+
+  <div class="imagecard">
+    <img src="wm.jpg">
+    <div style="text-align: center;">
+    <p class="model">model-wm 1</p>
+    <button type="submit" style="padding: 5px; background-color: aquamarine;width: 40%;" onclick="booking('model-wm 3')">Buy</button>
+  </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  let slideindex = 1;
+  showSlides(slideindex);
+
+  function plusslide(n) {
+    showSlides(slideindex += n);
+  }
+
+  function showSlides(n) {
+    let slides = document.getElementsByClassName("slidecard");
+    let dots = document.getElementsByClassName("dot");
+
+    if (n > slides.length) { slideindex = 1; }
+    if (n < 1) { slideindex = slides.length; }
+
+    for (let i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+    }
+    for (let i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideindex - 1].style.display = "block";
+    dots[slideindex - 1].className += " active";
+  }
+</script>
+
+<div id="id01" class="modal">
+  <form class="modal-content" id="loginform" method="POST">
+    <div class="container">
+      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="close" >&times;</span>
+    </div>
+    <div class="content-container" method='POST'>
+      <label for="fname"><b>Full-Name</b></label>
+      <input type="text" name="fname" placeholder="Enter Full-Name" required><br>
+      <b>Sekect your Gender</b><br>
+      <input type="radio" name="gender" value="male">
+      <label for="gender">Male</label>
+      <input type="radio" name="gender" value="female">
+      <label for="gender">Female</label>
+      <input type="email" name="email" placeholder="Enter Your Email" required><br>
+      <label for="password"><b>Password</b></label>
+      <input id="pass" type="password" name="password" placeholder="Enter Password" required><br>
+      <button type="submit" style="padding: 5px"><b>Sign In</b></button>
+    </div>
+  </form>
+</div>
+
+<script type="text/javascript">
+  var modal= document.getElementById('id01')
+  window.onclick = function(event) {
+      if (event.target == modal)
+      {
+          modal.style.display = "none";
+      }
+  }
+
+  document.getElementById('loginform').addEventListener('submit', function(event) {
+    var password = document.getElementById('pass').value;
+    if (password.length < 8) {
+      alert('Password must be at least 8 characters long.');
+      event.preventDefault();
+    }
+  });
+</script>
+
+
+<footer id="footersection">
+  <div style="justify-content: space-between;">
+    <div style="display: inline-block; padding-right: 40px;">
+      <p><a href="">Private Policy</a></p>
+      <p><a href="">Terms and Conditions</a></p>
+    </div>
+    <div style="display:inline-block; padding-left: 40px;">
+      <p>contact:- 1800 00 0081</p>
+      <p>234 housing number near eldoria</p>
+    </div>
+    <p>Copyrights  &copy;. All Rights Reserved</p>
+    <p>Made with &#9829; in India </p>
+  </div>
+  
+</footer>
+
+<div id="book" class="modal" style="display: none;">
+  <form class="modal-content" method="POST">
+    <div class="container">
+      <span onclick="document.getElementById('book').style.display='none'" class="close" title="close">&times;</span>
+    </div>
+    <div class="content-container">
+      <p id="product"></p>
+      <label for="fname"><b>Full Name</b></label>
+      <input type="text" name="fname" placeholder="Enter Full Name" required><br>
+      <label for="email"><b>Email</b></label>
+      <input type="email" name="email" placeholder="Enter Your Email" required><br>
+      <button type="submit" style="padding: 5px"><b>Book</b></button>
+    </div>
+  </form>
+</div>
+
+<script>
+   function booking(a) {
+    document.querySelector('#product').innerHTML = a;
+    document.getElementById('book').style.display = 'block';
+  }
+</script>
+
+
+</body>
+</html>
