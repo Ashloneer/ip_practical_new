@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark Theme Calculator, Iterator, and Prime Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #e0e0e0;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1, h2 {
+            color: #00e676; 
+        }
+
+        .container {
+            background-color: #1e1e1e;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 255, 127, 0.5); /* Fluorescent glow */
+            margin-bottom: 20px;
+            width: 300px;
+            text-align: center;
+            border: 1px solid #00e676;
+        }
+
+        input, select {
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #00e676; /* Fluorescent green border */
+            border-radius: 5px;
+            background-color: #333;
+            color: #e0e0e0;
+            width: 80%;
+        }
+
+        input:focus, select:focus {
+            outline: none;
+            box-shadow: 0 0 10px #00e676; /* Fluorescent green glow when focused */
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #00e676; /* Fluorescent green */
+            color: #121212;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background-color: #00c853; /* Slightly darker green on hover */
+        }
+
+        p {
+            font-size: 1.1em;
+            color: #e0e0e0;
+        }
+
+        .result {
+            font-weight: bold;
+            color: #00e676; /* Fluorescent green result */
+        }
+
+        /* Fluorescent border for container on hover */
+        .container:hover {
+            box-shadow: 0 0 15px 5px rgba(0, 230, 118, 0.8); /* Fluorescent green border on hover */
+        }
+    </style>
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <h1>JavaScript Examples</h1>
+
+    <!-- Calculator UI -->
+    <div class="container">
+        <h2>--Calculator--</h2>
+        <input type="number" id="num1" placeholder="First Number">
+        <input type="number" id="num2" placeholder="Second Number">
+        <select id="operation">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+        </select>
+        <button onclick="calculate()">Calculate</button>
+        <p id="calculatorResult" class="result"></p>
+    </div>
+
+    <!-- Square Iterator UI -->
+    <div class="container">
+        <h2>Square of Array</h2>
+        <input type="text" id="arrayInput" placeholder="Enter numbers (comma-separated)">
+        <button onclick="displaySquares()">Calculate Squares</button>
+        <p id="squareResult" class="result"></p>
+    </div>
+
+    <!-- Prime Generator UI -->
+    <div class="container">
+        <h2>Prime Numbers Generator</h2>
+        <input type="number" id="primeLimit" placeholder="Prime Limit">
+        <button onclick="generatePrimes()">Generate Primes</button>
+        <p id="primeResult" class="result"></p>
+    </div>
+</body>
+</html>
